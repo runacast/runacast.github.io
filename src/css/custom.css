@@ -1,0 +1,41 @@
+.container{
+
+    font-family: Arial, Helvetica, sans-serif;
+    .content{
+        max-width: 980px;
+    }
+}
+
+.container .menu-list{
+    li{
+        line-height: normal;
+    }
+}
+
+#header{
+    background: transparent url('../images/top-bg.jpg') center top no-repeat;
+}
+
+#header .content{
+    position: relative;
+    height: 450px;
+}
+#header .title{
+    position: absolute;
+    bottom: 0;
+    margin: 20px;
+    font-size: 20pt;
+    color: #FFF;
+}
+
+#page .content{
+    padding: 20px;
+}
+
+#footer{
+    margin-top: 40px;
+}
+
+#footer .content{
+    padding: 20px;
+}
