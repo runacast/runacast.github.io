@@ -28,7 +28,7 @@ const IndexPage = () => {
       <div class="content">
       <div class="row">
         <div class="col-6">
-        <h3>Parluk Uyana</h3>
+        <h3>Parluk Uyana kaypi</h3>
         <br/>
         <div class="row">
           <h4>{page_entry.title}</h4>
