@@ -7,7 +7,7 @@ import "../css/custom.css"
 const page_entry = {
   title: "Podcast #1",
   url: "https://runacast.github.io/nukichi",
-  description: "Katik podcast uyana kaypi"
+  description: "Katik podcast uyana"
 }
 
 const IndexPage = () => {
