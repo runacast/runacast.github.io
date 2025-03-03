@@ -1,0 +1,46 @@
+backend:
+  name: git-gateway
+  repo: runacast/runacast.github.io
+  branch: main
+  base_url: "https://runacast.github.io"
+
+site_url: https://rimaymanta.netlify.app
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+scripts:
+  - https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js
+
+media_library:
+  name: uploadcare
+  config:
+    publicKey: demopublickey
+collections:
+  - name: "posts"
+    label: "Posts"
+    widget: "object"
+    label_singular: 'Post'
+    folder: "src/posts"
+    extension: "json"
+    format: "json"
+    slug: '{{slug}}'
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string", tagname: "h1" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["Tarjeta"] }
+      - { label: "Slug", name: "slug", widget: "string", hint: "post-title-one", default: 'post-title' }
+      - {
+          label: "Featured Image",
+          name: "thumbnail",
+          widget: "image",
+          choose_url: true
+        }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          format: "",
+          default: "YYYY-MM-DD HH:mm"
+        }
+      - { label: "Body", name: "body", widget: "text", hint: "Escribe el post..." }
