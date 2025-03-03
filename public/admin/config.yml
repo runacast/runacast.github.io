@@ -28,7 +28,6 @@ collections:
     create: true
     fields:
       - { label: "Title", name: "title", widget: "string", tagname: "h1" }
-      - { label: "Tags", name: "tags", widget: "list", default: ["Tarjeta"] }
       - { label: "Slug", name: "slug", widget: "string", hint: "post-title-one", default: 'post-title' }
       - {
           label: "Featured Image",
@@ -43,4 +42,5 @@ collections:
           format: "",
           default: "YYYY-MM-DD HH:mm"
         }
+      - { label: "Tags", name: "tags", widget: "list", default: ["Tarjeta"] }
       - { label: "Body", name: "body", widget: "text", hint: "Escribe el post..." }

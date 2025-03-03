@@ -12,7 +12,7 @@ export default function Home() {
 
     return <div className='container'>
       <div className='content'>
-        <h2 className={custom.title}>Noticias destacados</h2>
+        <h2 className={custom.title}>Kunun rikuna</h2>
         <div className='row'>
         {posts.map(function(post){
             return <div className='col-4'>
