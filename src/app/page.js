@@ -14,7 +14,7 @@ export default function Home() {
       <div className='content'>
         <h2 className={custom.title}>Noticias destacados</h2>
         <div className='row'>
-        {posts.map(function(post, index){
+        {posts.map(function(post){
             return <div className='col-4'>
               <div className='card' key={post.slug}>
                 <div className='thumbnail'>
