@@ -11,7 +11,7 @@ export default async function Post({ params, searchParams}) {
 
     try {
       
-      const slug = (await params).name
+      const slug = (await params).slug
       const filePath = path.join(process.cwd(), 'src', 'posts', slug + '.json')
       
       const fileContent = fs.readFileSync(filePath, 'utf8')
@@ -37,7 +37,7 @@ export default async function Post({ params, searchParams}) {
     }catch(e){
       return <div className='container'>
         <div className='content'>
-          <h4>Producto no encontrado 404.</h4>
+          <h4>Post no encontrado 404.</h4>
         </div>
       </div>
     }
