@@ -4,8 +4,8 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata = {
-  title: 'Playec - Videojuegos',
-  description: 'Tienda de videojuegos en Ecuador.',
+  title: 'RimayManta - Noticias',
+  description: 'Página de RimayManta.',
 }
 
 export default function RootLayout({ children }) {

@@ -1,7 +1,6 @@
 import custom from './page.module.css'
 import fs from 'fs'
 import path from 'path'
-import ReactMarkdown from 'react-markdown'
 
 export default function Home() {
   
@@ -13,7 +12,7 @@ export default function Home() {
 
     return <div className='container'>
       <div className='content'>
-        <h2 className={custom.title}>Productos destacados</h2>
+        <h2 className={custom.title}>Noticias destacados</h2>
         <div className='row'>
         {posts.map(function(post, index){
             return <div className='col-4'>
@@ -32,8 +31,10 @@ export default function Home() {
     </div>
 
   }catch(e){
-    return <div>
-      <p>No se ha encontrado productos disponibles.</p>
+    return <div className='container'>
+      <div className='content'>
+        <p>No hay entradas.</p>
+      </div>
     </div>
   }
   

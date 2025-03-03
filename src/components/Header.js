@@ -3,7 +3,7 @@ export default function Header(){
         <div className='content'>
             <div className="navbar">
                 <div className="nav-brand">
-                    <a href='/'><img style={{width:200}} src='/logo-editor.png'></img></a>
+                    <a href='/'><img style={{width:200}} src='/brand.jpg'></img></a>
                 </div>
                 <div className="nav-side navbar-menu right">
                     <label id="menu-toggle">
@@ -16,8 +16,7 @@ export default function Header(){
                 </div>
                 <div className="nav-side navbar-toggle">
                     <ul className="menu">
-                        <li><a href="/">Tienda</a></li>
-                        <li><a href="/nosotros">Nosotros</a></li>
+                        <li><a href="/">Noticias</a></li>
                     </ul>
                 </div>
             </div>
