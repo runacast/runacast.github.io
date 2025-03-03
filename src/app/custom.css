@@ -48,6 +48,12 @@ body{
 	color: rgb(101, 101, 101);
 }
 
+#header .navbar{
+	
+}
+
+/* Card visual content */
+
 .card{
 	padding: 5px;
 }

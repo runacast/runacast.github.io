@@ -1,4 +1,7 @@
 export default function Header(){
+    
+    const year = new Date().getFullYear();
+
     return <div id="footer">
         <div className="content">
             <ul className="list">
@@ -6,7 +9,7 @@ export default function Header(){
                 <li><a target="_blank" href="https://www.facebook.com/rimaymanta">Facebook</a></li>
             </ul>
             <br></br>
-            <sub>RimayManta</sub>
+            <sub>{year} RimayManta - Blog de opinión y cultura kichwa.</sub>
         </div>
     </div>
 }

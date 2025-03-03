@@ -4,8 +4,8 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata = {
-  title: 'RimayManta - Noticias',
-  description: 'Página de RimayManta.',
+  title: 'RimayManta - Salasaka',
+  description: 'Ñukuchik pushtu rimarinku.',
 }
 
 export default function RootLayout({ children }) {

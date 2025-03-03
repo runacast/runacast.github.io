@@ -1,9 +1,12 @@
+import Logo from "../../public/logo.svg";
+
 export default function Header(){
+
     return <div id='header'>
         <div className='content'>
             <div className="navbar">
                 <div className="nav-brand">
-                    <a href='/'><img style={{width:200}} src='/brand.jpg'></img></a>
+                    <a href='/'><Logo width={300} height={60} /></a>
                 </div>
                 <div className="nav-side navbar-menu right">
                     <label id="menu-toggle">
@@ -16,7 +19,7 @@ export default function Header(){
                 </div>
                 <div className="nav-side navbar-toggle">
                     <ul className="menu">
-                        <li><a href="/">Noticias</a></li>
+                        <li><a href="/">Rikunakuna</a></li>
                     </ul>
                 </div>
             </div>
