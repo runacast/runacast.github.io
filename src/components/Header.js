@@ -6,7 +6,7 @@ export default function Header(){
         <div className='content'>
             <div className="navbar">
                 <div className="nav-brand">
-                    <a href='/'><Logo width={300} height={60} /></a>
+                    <a href='/'><Logo width={300} height={50} /></a>
                 </div>
                 <div className="nav-side navbar-menu right">
                     <label id="menu-toggle">

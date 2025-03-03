@@ -6,7 +6,7 @@ export default function Home() {
   
   try{
 
-    const filePath = path.join(process.cwd(), 'public', 'recents.json')
+    const filePath = path.join(process.cwd(), 'src', 'index', 'lasted.json')
     const fileContent = fs.readFileSync(filePath, 'utf8')
     const posts = JSON.parse(fileContent)
 
@@ -20,8 +20,8 @@ export default function Home() {
                 <div className='thumbnail'>
                   <a href={post.slug}><img src={post.thumbnail}></img></a>
                 </div>
-                <div className='button'>
-                  <a className='btn btn-buy' href={post.slug}>Mirar precios</a>
+                <div className='title'>
+                  <a href={post.slug}><h4>{post.title}</h4></a>
                 </div>
               </div>
             </div>
