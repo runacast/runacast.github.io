@@ -12,7 +12,6 @@ const postFiles = fs.readdirSync(postsFolder).filter((file) => file.endsWith('.j
 
 // Leer y combinar los posts
 const postsList = postFiles.map((file, index) => {
-  console.log(index);
   const filePath = path.join(postsFolder, file)
   const fileContent = fs.readFileSync(filePath, 'utf8')
   return JSON.parse(fileContent)
