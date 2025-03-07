@@ -11,7 +11,7 @@ const postFiles = fs.readdirSync(postsFolder).filter((file) => file.endsWith('.j
 // Leer y combinar los posts
 if(postFiles.length){
 
-  const postsList = []
+  let postsList = []
   
   postFiles.forEach((file, index) => {
 
