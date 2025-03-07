@@ -1,12 +1,10 @@
 import Logo from '../../public/logo.svg'
-import { fileURLToPath } from 'url'
 import fs from 'fs'
 import path from 'path'
 
 export default function Header(root){
-
-    const rootDir = path.dirname(fileURLToPath(import.meta.url))
-    const filePath = path.join(rootDir, '..', 'menus', 'top-menu.json')
+    
+    const filePath = path.join(root.root, '..', 'menus', 'top-menu.json')
     console.log(root.root)
 
     let menu = []
