@@ -7,7 +7,7 @@ export default function Header(){
 
     const filePath = path.join(path.dirname(__filename), 'src', 'menus', 'top-menu.json')
 
-    const test = fileURLToPath(import.meta.url)
+    const test = path.dirname(fileURLToPath(import.meta.url))
 
     let menu = []
 
