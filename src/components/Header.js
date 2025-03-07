@@ -4,18 +4,17 @@ import path from 'path'
 
 export default function Header(root){
     
-    const filePath = path.join(root.root, '..', 'menus', 'top-menu.json')
-    console.log(root.root)
+    //const filePath = path.join(root.root, '..', 'menus', 'top-menu.json')
 
     let menu = []
 
-    if(fs.existsSync(filePath)){
+    /*if(fs.existsSync(filePath)){
         const fileContent = fs.readFileSync(filePath, 'utf8')
         const data = JSON.parse(fileContent)
         if(data.menu){
             menu = data.menu
         }
-    }
+    }*/
 
     return <div id='header'>
         <div className='content'>
