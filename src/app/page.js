@@ -6,9 +6,24 @@ export default function Home() {
 
   try{
 
-    const filePath = path.join(process.cwd(), 'src', 'index', 'lasted.json')
-    const fileContent = fs.readFileSync(filePath, 'utf8')
-    const posts = JSON.parse(fileContent)
+    const postsFolder = path.join(process.cwd(), 'src', 'posts')
+    const postFiles = fs.readdirSync(postsFolder).filter((file) => file.endsWith('.json'))
+    let postsList = []
+
+    postFiles.forEach((file, index) => {
+      
+      if (index <= 9) {
+        const filePath = path.join(postsFolder, file)
+        const fileContent = fs.readFileSync(filePath, 'utf8')
+        const data = JSON.parse(fileContent)
+        postsList.push({
+          title: data.title,
+          thumbnail: data.thumbnail,
+          slug: data.slug
+        })
+      }
+
+    })
     
     const chunkArray = (array, size) => {
       return Array.from({ length: Math.ceil(array.length / size) }, (_, index) =>
@@ -16,7 +31,7 @@ export default function Home() {
       );
     };
 
-    const groupedPosts = chunkArray(posts, 3);
+    const groupedPosts = chunkArray(postsList, 3);
 
     return <div className='container'>
       <div className='content'>
