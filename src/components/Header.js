@@ -4,7 +4,9 @@ import path from 'path'
 
 export default function Header(){
 
-    const filePath = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
+    const rootDir = path.resolve(__dirname, '..');
+    const filePath = path.join(rootDir, 'src', 'menus', 'top-menu.json')
+    console.log(filePath)
     let menu = []
 
     if(fs.existsSync(filePath)){
