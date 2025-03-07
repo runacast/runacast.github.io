@@ -33,7 +33,8 @@ collections:
           label: "Featured Image",
           name: "thumbnail",
           widget: "image",
-          choose_url: true
+          choose_url: true,
+          required: false
         }
       - { label: "Body", name: "body", widget: "text" }
   - name: "posts"
