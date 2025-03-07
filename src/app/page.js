@@ -27,7 +27,11 @@ export default function Home() {
               <div key={index} className="col-4">
                 <div className="card">
                   <div className="card-body">
-                    <span className='post-thumbnail'><img src={post.thumbnail}></img></span>
+                    <span className='post-thumbnail'>
+                      <a href={'post/'+post.slug}>
+                        <img src={post.thumbnail}></img>
+                      </a>
+                    </span>
                     <h4 className="card-title"><a href={'post/'+post.slug}>{post.title}</a></h4>
                   </div>
                 </div>
