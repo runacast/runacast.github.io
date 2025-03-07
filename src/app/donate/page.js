@@ -1,10 +1,16 @@
-import React from 'react'
+import PayPalButton from '@/components/PayPalButton'
 
-export default async function Donate() {
+export const metadata = {
+    title: 'Donate',
+    description: 'Donate to RimayManta'
+}
 
-    return <div>
-        <div>
-            <p>Paypal</p>
+export default function Donate() {
+    
+    return (<div className='container'>
+        <div className='content'>
+            Botón de prueba
+            <PayPalButton />
         </div>
-    </div>
+    </div>)
 }
