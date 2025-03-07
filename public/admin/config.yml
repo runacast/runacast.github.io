@@ -4,7 +4,7 @@ backend:
   branch: main
   base_url: "https://runacast.github.io"
 
-site_url: https://rimaymanta.netlify.app
+site_url: https://rimaymanta.com
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
