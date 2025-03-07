@@ -17,6 +17,18 @@ media_library:
   config:
     publicKey: demopublickey
 collections:
+  - name: "menu"
+    label: "Top Menu"
+    widget: "object"
+    folder: "src/index"
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string", tagname: "h1" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Target", name: "target", widget: "string", default: "_blank", required: false }
   - name: "pages"
     label: "Pages"
     widget: "object"
