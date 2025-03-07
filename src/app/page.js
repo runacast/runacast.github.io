@@ -23,8 +23,8 @@ export default function Home() {
         <h2 className={custom.title}>Ima tukushka</h2>
         {groupedPosts.map((group, groupIndex) => (
           <div key={groupIndex} className="row" style={{ marginBottom: "20px" }}>
-            {group.map((post) => (
-              <div key={post.id} className="col-4">
+            {group.map((post, index) => (
+              <div key={index} className="col-4">
                 <div className="card">
                   <div className="card-body">
                     <span><img src={post.thumbnail}></img></span>
