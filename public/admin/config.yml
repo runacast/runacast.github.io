@@ -35,31 +35,4 @@ collections:
           widget: "image",
           choose_url: true
         }
-      - { label: "Body", name: "body", widget: "text", hint: "Escribe el post..." }
-  - name: "posts"
-    label: "Posts"
-    widget: "object"
-    label_singular: 'Post'
-    folder: "src/posts"
-    extension: "json"
-    format: "json"
-    slug: '{{slug}}'
-    create: true
-    fields:
-      - { label: "Title", name: "title", widget: "string", tagname: "h1" }
-      - { label: "Slug", name: "slug", widget: "string", hint: "post-title-one", default: 'post-title' }
-      - {
-          label: "Featured Image",
-          name: "thumbnail",
-          widget: "image",
-          choose_url: true
-        }
-      - {
-          label: "Publish Date",
-          name: "date",
-          widget: "datetime",
-          format: "",
-          default: "YYYY-MM-DD HH:mm"
-        }
-      - { label: "Tags", name: "tags", widget: "list", default: ["Tarjeta"] }
-      - { label: "Body", name: "body", widget: "text", hint: "Escribe el post..." }
+      - { label: "Body", name: "body", widget: "text" }
