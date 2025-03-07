@@ -28,7 +28,7 @@ collections:
     create: true
     fields:
       - { label: "Title", name: "title", widget: "string", tagname: "h1" }
-      - { label: "Slug", name: "slug", widget: "string", hint: "post-title-one", default: 'post-title' }
+      - { label: "Slug", name: "slug", widget: "string", default: 'page-title' }
       - {
           label: "Featured Image",
           name: "thumbnail",
@@ -48,7 +48,7 @@ collections:
     create: true
     fields:
       - { label: "Title", name: "title", widget: "string", tagname: "h1" }
-      - { label: "Slug", name: "slug", widget: "string", hint: "post-title-one", default: 'post-title' }
+      - { label: "Slug", name: "slug", widget: "string", default: 'post-title' }
       - {
           label: "Featured Image",
           name: "thumbnail",
