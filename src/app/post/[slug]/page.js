@@ -3,21 +3,37 @@ import path from 'path'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 
-export const metadata = {
-  title: 'Yachay'
+export async function generateMetadata({ params }) {
+
+  const post = getPost((await params).slug); // Función ficticia para obtener datos
+
+  return {
+    title: post.title,
+    description: post.body,
+    openGraph: {
+      title: post.title,
+      description: post.body,
+      images: post.thumbnail,
+      url: `https://rimaymanta.com/${post.thumbnail}`
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.body,
+      images: post.thumbnail
+    }
+  }
 }
 
 export default async function Post({ params, searchParams}) {
 
     try {
       
-      const slug = (await params).slug
-      const filePath = path.join(process.cwd(), 'src', 'posts', slug + '.json')
-      
-      const fileContent = fs.readFileSync(filePath, 'utf8')
-      const post = JSON.parse(fileContent)
+      const post = getPost((await params).slug)
 
-      metadata.title += ' - '+post.title
+      if(!post){
+        throw new Error('Not found 404')
+      }
       
       return <div className='container'>
         <div className='content'>
@@ -32,12 +48,26 @@ export default async function Post({ params, searchParams}) {
           </div>
         </div>
       </div>
+
     }catch(e){
+
       return <div className='container'>
         <div className='content'>
-          <h4>No encontrado 404.</h4>
+          <h4>{e.message}</h4>
         </div>
       </div>
+
     }
     
+}
+
+function getPost(slug){
+
+  const filePath = path.join(process.cwd(), 'src', 'posts', slug + '.json')
+  if(fs.existsSync(filePath)){
+    const fileContent = fs.readFileSync(filePath, 'utf8')
+    return JSON.parse(fileContent)
+  }
+  return ''
+
 }

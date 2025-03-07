@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 
 export const metadata = {
   title: 'RimayManta - Salasaka',
-  description: 'Ñukuchik pushtu rimarinku.',
+  description: 'Ñukuchik pushtu rimarinku.'
 }
 
 export default function RootLayout({ children }) {

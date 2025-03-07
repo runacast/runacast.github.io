@@ -3,22 +3,49 @@ import path from 'path'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 
-export const metadata = {
-  title: 'Rimaymanta'
+function getPage(slug) {
+
+  const filePath = path.join(process.cwd(), 'src', 'pages', slug + '.json')
+  const fileContent = fs.readFileSync(filePath, 'utf8')
+
+  if(fs.existsSync(filePath)){
+    return JSON.parse(fileContent)
+  }
+  return ''
+
+}
+
+export async function generateMetadata({ params }) {
+
+  const page = getPage((await params).slug); // Función ficticia para obtener datos
+
+  return {
+    title: page.title,
+    description: page.body,
+    openGraph: {
+      title: page.title,
+      description: page.body,
+      images: page.thumbnail,
+      url: `https://rimaymanta.com/${page.thumbnail}`
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: page.title,
+      description: page.body,
+      images: page.thumbnail
+    }
+  }
 }
 
 export default async function Page({ params, searchParams}) {
 
     try {
       
-      const slug = (await params).slug
-      const filePath = path.join(process.cwd(), 'src', 'pages', slug + '.json')
-      const fileContent = fs.readFileSync(filePath, 'utf8')
-      const page = JSON.parse(fileContent)
+      const page = getPage((await params).slug)
 
-      const isLoggedIn = true
-
-      metadata.title += ' - '+page.title
+      if(!page){
+        throw new Error('Not found 404.')
+      }
       
       return <div className='container'>
         <div className='content'>
@@ -36,7 +63,7 @@ export default async function Page({ params, searchParams}) {
     }catch(e){
       return <div className='container'>
         <div className='content'>
-          <h4>No encontrado 404.</h4>
+          <h4>{e.message}</h4>
         </div>
       </div>
     }
