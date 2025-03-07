@@ -5,9 +5,8 @@ import path from 'path'
 export default function Header(){
 
     const filePath = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
-    console.log(filePath)
-    /*const fileContent = fs.readFileSync(filePath, 'utf8')
-    const menu = JSON.parse(fileContent)*/
+    const fileContent = fs.readFileSync(filePath, 'utf8')
+    /*const menu = JSON.parse(fileContent)*/
 
     return <div id='header'>
         <div className='content'>
