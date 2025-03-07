@@ -3,7 +3,7 @@
   commandOrigin = "config"
   publish = "/opt/build/repo/.next"
   publishOrigin = "config"
-[plugins]
+[[plugins]]
   inputs = "{}"
   origin = "ui"
-  package = "@netlify/plugin-nextjs"
+  package = "netlify-plugin-nextjs"
