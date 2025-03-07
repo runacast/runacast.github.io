@@ -26,7 +26,7 @@ export default function Header(){
                 <div className="nav-side navbar-toggle">
                     <ul className="menu">
                         {menu.menu.map(function(item, index){
-                            return <li><a href={item.slug}>{item.title}</a></li>
+                            return <li key={index}><a href={item.slug}>{item.title}</a></li>
                         })}
                     </ul>
                 </div>
