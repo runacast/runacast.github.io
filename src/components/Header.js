@@ -1,12 +1,13 @@
-import Logo from "../../public/logo.svg"
+import Logo from '../../public/logo.svg'
+import { fileURLToPath } from 'url';
 import fs from 'fs'
 import path from 'path'
 
 export default function Header(){
 
-    const rootDir = path.resolve(__dirname, '..');
-    const filePath = path.join(rootDir, '..', '..', 'src', 'menus', 'top-menu.json')
-    
+    const rootDir = path.dirname(fileURLToPath(import.meta.url));
+    const filePath = path.join(rootDir, '..', 'menus', 'top-menu.json')
+
     let menu = []
 
     if(fs.existsSync(filePath)){
