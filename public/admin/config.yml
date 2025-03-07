@@ -17,49 +17,21 @@ media_library:
   config:
     publicKey: demopublickey
 collections:
-  - name: "pages"
-    label: "Pages"
-    widget: "object"
-    label_singular: 'Post'
-    folder: "src/pages"
-    extension: "json"
-    format: "json"
-    slug: '{{slug}}'
+  - label: "Blog in English"
+    name: "english_posts"
+    folder: "_posts"
     create: true
+    filter: {field: "language", value: "en"}
     fields:
-      - { label: "Title", name: "title", widget: "string", tagname: "h1" }
-      - { label: "Slug", name: "slug", widget: "string", hint: "post-title-one", default: 'post-title' }
-      - {
-          label: "Featured Image",
-          name: "thumbnail",
-          widget: "image",
-          choose_url: true
-        }
-      - { label: "Body", name: "body", widget: "text" }
-  - name: "posts"
-    label: "Posts"
-    widget: "object"
-    label_singular: 'Post'
-    folder: "src/posts"
-    extension: "json"
-    format: "json"
-    slug: '{{slug}}'
+      - {label: "Language", name: "language", widget: "select", options: ["en", "es"]}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Content", name: "body", widget: "markdown"}
+  - label: "Blog en Español"
+    name: "spanish_posts"
+    folder: "_posts"
     create: true
+    filter: {field: "language", value: "es"}
     fields:
-      - { label: "Title", name: "title", widget: "string", tagname: "h1" }
-      - { label: "Slug", name: "slug", widget: "string", hint: "post-title-one", default: 'post-title' }
-      - {
-          label: "Featured Image",
-          name: "thumbnail",
-          widget: "image",
-          choose_url: true
-        }
-      - {
-          label: "Publish Date",
-          name: "date",
-          widget: "datetime",
-          format: "",
-          default: "YYYY-MM-DD HH:mm"
-        }
-      - { label: "Tags", name: "tags", widget: "list", default: ["Tarjeta"] }
-      - { label: "Body", name: "body", widget: "text", hint: "Contenido del post..." }
+      - {label: "Lenguaje", name: "language", widget: "select", options: ["en", "es"]}
+      - {label: "Titulo", name: "title", widget: "string"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
