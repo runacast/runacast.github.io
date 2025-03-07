@@ -22,9 +22,7 @@ export default async function Page({ params, searchParams}) {
       return <div className='container'>
         <div className='content'>
           <h2>{page.title}</h2>
-          <div className='col-4'>
-            <img src={page.thumbnail}></img>
-          </div>
+          {(page.thumbnail) && <div className='row'><img src={page.thumbnail}></img></div>}
           <div className='row'>
             <ReactMarkdown>
               {post.body}
