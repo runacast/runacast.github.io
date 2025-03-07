@@ -13,20 +13,23 @@ export default async function Page({ params, searchParams}) {
       
       const slug = (await params).slug
       const filePath = path.join(process.cwd(), 'src', 'pages', slug + '.json')
-      
       const fileContent = fs.readFileSync(filePath, 'utf8')
       const page = JSON.parse(fileContent)
+
+      const isLoggedIn = true
 
       metadata.title += ' - '+page.title
       
       return <div className='container'>
         <div className='content'>
           <h2>{page.title}</h2>
-          {(page.thumbnail) && <div className='row'><img src={page.thumbnail}></img></div>}
+          {function(){
+            if(page.thumbnail){
+              return <div className='row'><img src={page.thumbnail}></img></div>
+            }
+          }()}
           <div className='row'>
-            <ReactMarkdown>
-              {post.body}
-            </ReactMarkdown>
+            <ReactMarkdown>{page.body}</ReactMarkdown>
           </div>
         </div>
       </div>
