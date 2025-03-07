@@ -3,7 +3,7 @@ import fs from 'fs'
 import path from 'path'
 
 export default function Home() {
-  
+
   try{
 
     const filePath = path.join(process.cwd(), 'src', 'index', 'lasted.json')
@@ -41,7 +41,7 @@ export default function Home() {
   }catch(e){
     return <div className='container'>
       <div className='content'>
-        <p>Imaksh illun.</p>
+        <p>Imash illun</p>
       </div>
     </div>
   }

@@ -19,7 +19,12 @@ if(postFiles.length){
     if(index <= 9){
       const filePath = path.join(postsFolder, file)
       const fileContent = fs.readFileSync(filePath, 'utf8')
-      postsList.push(JSON.parse(fileContent))
+      const data = JSON.parse(fileContent)
+      postsList.push({
+        title: data.title,
+        thumbnail: data.thumbnail,
+        slug: data.slug
+      })
     }
 
   })

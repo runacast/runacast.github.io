@@ -20,7 +20,7 @@ collections:
   - label: "Menus"
     name: "menus"
     widget: "object"
-    folder: "src/index"
+    folder: "src/menus"
     extension: "json"
     format: "json"
     slug: '{{slug}}'
