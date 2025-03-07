@@ -4,7 +4,7 @@ import path from 'path'
 
 export default function Header(){
 
-    const filePath = path.join('src', 'menus', 'top-menu.json')
+    const filePath = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
     let menu = []
 
     if(fs.existsSync(filePath)){
@@ -33,7 +33,7 @@ export default function Header(){
                 <div className="nav-side navbar-toggle">
                     <ul className="menu">
                     {menu.map((item, index) => (
-                        <li key={index}><a href="/">Kallarik</a></li>
+                        <li key={index}><a href={item.slug}>{item.title}</a></li>
                     ))}
                     </ul>
                 </div>
