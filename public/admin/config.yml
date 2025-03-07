@@ -7,7 +7,7 @@ backend:
 site_url: https://rimaymanta.com
 
 media_folder: "public/uploads"
-public_folder: "/uploads"
+public_folder: "/public"
 
 scripts:
   - https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js
@@ -17,9 +17,10 @@ media_library:
   config:
     publicKey: demopublickey
 collections:
-  - label: "Menus"
-    name: "menus"
+  - name: "menus"
+    label: "Menus"
     widget: "object"
+    label_singular: "Menu"
     folder: "src/index"
     extension: "json"
     format: "json"
@@ -40,7 +41,7 @@ collections:
   - name: "pages"
     label: "Pages"
     widget: "object"
-    label_singular: 'Post'
+    label_singular: "Page"
     folder: "src/pages"
     extension: "json"
     format: "json"
@@ -60,7 +61,7 @@ collections:
   - name: "posts"
     label: "Posts"
     widget: "object"
-    label_singular: 'Post'
+    label_singular: "Post"
     folder: "src/posts"
     extension: "json"
     format: "json"
