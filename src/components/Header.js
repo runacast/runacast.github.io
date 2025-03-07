@@ -4,10 +4,12 @@ import path from 'path'
 
 export default function Header(){
 
-    const filePath = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
+    const filePath = path.join('src', 'menus', 'top-menu.json')
+    console.log(filePath)
     if(fs.existsSync(filePath)){
         const fileContent = fs.readFileSync(filePath, 'utf8')
         const menu = JSON.parse(fileContent)
+        console.log(menu)
     }
 
     return <div id='header'>
