@@ -1,0 +1,11 @@
+{
+  "slug": "top-menu",
+  "title": "Top menu",
+  "menu": [
+    {
+      "order": 1,
+      "title": "Kallarik",
+      "slug": "/"
+    }
+  ]
+}
