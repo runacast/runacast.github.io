@@ -9,31 +9,39 @@ export default function Home() {
     const filePath = path.join(process.cwd(), 'src', 'index', 'lasted.json')
     const fileContent = fs.readFileSync(filePath, 'utf8')
     const posts = JSON.parse(fileContent)
+    
+    const chunkArray = (array, size) => {
+      return Array.from({ length: Math.ceil(array.length / size) }, (_, index) =>
+        array.slice(index * size, index * size + size)
+      );
+    };
+
+    const groupedPosts = chunkArray(posts, 3);
 
     return <div className='container'>
       <div className='content'>
-        <h2 className={custom.title}>Kunun rikuna</h2>
-        <div className='row'>
-        {posts.map(function(post){
-            return <div className='col-4'>
-              <div className='card' key={post.slug}>
-                <div className='thumbnail'>
-                  <a href={post.slug}><img src={post.thumbnail}></img></a>
-                </div>
-                <div className='title'>
-                  <a href={post.slug}><h4>{post.title}</h4></a>
+        <h2 className={custom.title}>Ima tukushka</h2>
+        {groupedPosts.map((group, groupIndex) => (
+          <div key={groupIndex} className="row" style={{ marginBottom: "20px" }}>
+            {group.map((post) => (
+              <div key={post.id} className="col-4">
+                <div className="card">
+                  <div className="card-body">
+                    <span><img src={post.thumbnail}></img></span>
+                    <h4 className="card-title">{post.title}</h4>
+                  </div>
                 </div>
               </div>
-            </div>
-        })}
-        </div>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
 
   }catch(e){
     return <div className='container'>
       <div className='content'>
-        <p>No hay entradas.</p>
+        <p>Imaksh illun.</p>
       </div>
     </div>
   }

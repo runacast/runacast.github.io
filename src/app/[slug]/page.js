@@ -7,12 +7,12 @@ export const metadata = {
   title: 'Yachay'
 }
 
-export default async function Post({ params, searchParams}) {
+export default async function Page({ params, searchParams}) {
 
     try {
       
       const slug = (await params).slug
-      const filePath = path.join(process.cwd(), 'src', 'posts', slug + '.json')
+      const filePath = path.join(process.cwd(), 'src', 'pages', slug + '.json')
       
       const fileContent = fs.readFileSync(filePath, 'utf8')
       const post = JSON.parse(fileContent)
@@ -37,7 +37,7 @@ export default async function Post({ params, searchParams}) {
     }catch(e){
       return <div className='container'>
         <div className='content'>
-          <h4>Post no encontrado 404.</h4>
+          <h4>No encontrado 404.</h4>
         </div>
       </div>
     }
