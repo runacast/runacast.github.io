@@ -1,0 +1,21 @@
+{
+  "slug": "top-menu",
+  "title": "Top menu",
+  "menu": [
+    {
+      "order": 1,
+      "title": "Kallarik",
+      "slug": "/"
+    },
+    {
+      "order": 2,
+      "title": "Ñukuchi",
+      "slug": "/nukuchi"
+    },
+    {
+      "order": 3,
+      "title": "Yanapay",
+      "slug": "yanapay"
+    }
+  ]
+}
