@@ -26,6 +26,8 @@ collections:
     slug: '{{slug}}'
     create: true
     fields:
+      - { label: "Title", name: "title", widget: "string", tagname: "h1" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "menu-slug", default: 'menu-slug' }
       - label: "Menu"
         name: "menu"
         collapsed: true
