@@ -8,7 +8,7 @@ export default function Header(){
                 <li><a target="_blank" href="https://www.facebook.com/rimaymanta">Facebook</a></li>
             </ul>
             <br></br>
-            <sub>{year} RimayManta - Blog de opinión y cultura kichwa.</sub>
+            <sub>RimayManta - Official site of RimayManta, where audiovisual content related to the culture of Salasaka is produced. All rights are reserved by the creator of this project.</sub>
         </div>
     </div>
 }
