@@ -34,7 +34,7 @@ export default function Header(){
                     </label>
                 </div>
                 <div className="nav-side navbar-toggle">
-                    <ul className="menu" link={rootDir}>
+                    <ul className="menu" link={rootDir} href={filePath}>
                     {menu.map((item, index) => (
                         <li key={index}><a href={item.slug}>{item.title}</a></li>
                     ))}
