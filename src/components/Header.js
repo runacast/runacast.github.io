@@ -1,12 +1,13 @@
 import Logo from '../../public/logo.svg'
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from 'url'
 import fs from 'fs'
 import path from 'path'
 
-export default function Header(){
+export default function Header(root){
 
     const rootDir = path.dirname(fileURLToPath(import.meta.url))
     const filePath = path.join(rootDir, '..', 'menus', 'top-menu.json')
+    console.log(root.root)
 
     let menu = []
 
@@ -34,7 +35,7 @@ export default function Header(){
                     </label>
                 </div>
                 <div className="nav-side navbar-toggle">
-                    <ul className="menu">
+                    <ul className="menu" link={root.root}>
                     {menu.map((item, index) => (
                         <li key={index}><a href={item.slug}>{item.title}</a></li>
                     ))}
