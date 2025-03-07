@@ -7,6 +7,8 @@ export default function Header(){
 
     const filePath = path.join(path.dirname(__filename), 'src', 'menus', 'top-menu.json')
 
+    const test = fileURLToPath(import.meta.url)
+
     let menu = []
 
     if(fs.existsSync(filePath)){
@@ -33,7 +35,7 @@ export default function Header(){
                     </label>
                 </div>
                 <div className="nav-side navbar-toggle">
-                    <ul className="menu" link={filePath}>
+                    <ul className="menu" link={test}>
                     {menu.map((item, index) => (
                         <li key={index}><a href={item.slug}>{item.title}</a></li>
                     ))}
