@@ -5,11 +5,11 @@ import path from 'path'
 export default function Header(){
 
     const filePath = path.join('src', 'menus', 'top-menu.json')
-    console.log(filePath)
+    let menu = {}
+
     if(fs.existsSync(filePath)){
         const fileContent = fs.readFileSync(filePath, 'utf8')
-        const menu = JSON.parse(fileContent)
-        console.log(menu)
+        menu = JSON.parse(fileContent)
     }
 
     return <div id='header'>
@@ -29,7 +29,11 @@ export default function Header(){
                 </div>
                 <div className="nav-side navbar-toggle">
                     <ul className="menu">
-                        <li><a href="/">Karallik</a></li>
+                        {
+                            menu.menu.map(function(item, index){
+                                return <li key={index}><a href={item.slug}>{item.title}</a></li>
+                            })
+                        }
                     </ul>
                 </div>
             </div>
