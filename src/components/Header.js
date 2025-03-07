@@ -25,7 +25,7 @@ export default function Header(){
                 </div>
                 <div className="nav-side navbar-toggle">
                     <ul className="menu">
-                        <li><a>Karallik</a></li>
+                        <li><a href="/">Karallik</a></li>
                     </ul>
                 </div>
             </div>
