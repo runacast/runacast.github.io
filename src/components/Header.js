@@ -1,6 +1,12 @@
-import Logo from "../../public/logo.svg";
+import Logo from "../../public/logo.svg"
+import fs from 'fs'
+import path from 'path'
 
 export default function Header(){
+
+    const filePath = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
+    const fileContent = fs.readFileSync(filePath, 'utf8')
+    const menu = JSON.parse(fileContent)
 
     return <div id='header'>
         <div className='content'>
@@ -19,7 +25,9 @@ export default function Header(){
                 </div>
                 <div className="nav-side navbar-toggle">
                     <ul className="menu">
-                        <li><a href="/">Rikunakuna</a></li>
+                        {menu.menu.map(function(item, index){
+                            return <li><a href={item.slug}>{item.title}</a></li>
+                        })}
                     </ul>
                 </div>
             </div>
