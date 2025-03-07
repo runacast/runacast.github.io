@@ -5,8 +5,7 @@ import path from 'path'
 
 export default function Header(){
 
-    const rootDir = path.dirname(fileURLToPath(import.meta.url));
-    const filePath = path.join('menus', 'top-menu.json')
+    const filePath = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
 
     let menu = []
 
@@ -36,7 +35,7 @@ export default function Header(){
                 <div className="nav-side navbar-toggle">
                     <ul className="menu">
                     {menu.map((item, index) => (
-                        <li key={index}><a href={item.slug}>{item.title}</a></li>
+                        <li key={index}><a link={filePath} href={item.slug}>{item.title}</a></li>
                     ))}
                     </ul>
                 </div>
