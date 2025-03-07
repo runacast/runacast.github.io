@@ -10,11 +10,20 @@ const outputFile = path.join(process.cwd(), 'src', 'index', 'lasted.json')
 const postFiles = fs.readdirSync(postsFolder).filter((file) => file.endsWith('.json'))
 
 // Leer y combinar los posts
-const postsList = postFiles.map((file, index) => {
-  const filePath = path.join(postsFolder, file)
-  const fileContent = fs.readFileSync(filePath, 'utf8')
-  return JSON.parse(fileContent)
-})
+if(postFiles.length){
 
-// Escribir el archivo posts.json
-fs.writeFileSync(outputFile, JSON.stringify(postsList, null, 2))
+  const postsList = []
+  
+  postFiles.forEach((file, index) => {
+
+    if(index <= 9){
+      const filePath = path.join(postsFolder, file)
+      const fileContent = fs.readFileSync(filePath, 'utf8')
+      postsList.push(JSON.parse(fileContent))
+    }
+
+  })
+
+  fs.writeFileSync(outputFile, JSON.stringify(postsList.reverse(), null, 2))
+
+}

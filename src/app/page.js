@@ -3,15 +3,6 @@ import fs from 'fs'
 import path from 'path'
 
 export default function Home() {
-
-  const postsFolder = path.join(process.cwd(), 'src', 'posts')
-  const postFiles = fs.readdirSync(postsFolder).filter((file) => file.endsWith('.json'))
-
-  const postsList = postFiles.map((file, index) => {
-    const filePath = path.join(postsFolder, file)
-    const fileContent = fs.readFileSync(filePath, 'utf8')
-    return JSON.parse(fileContent)
-  })
   
   try{
 
@@ -36,8 +27,8 @@ export default function Home() {
               <div key={index} className="col-4">
                 <div className="card">
                   <div className="card-body">
-                    <span><img src={post.thumbnail}></img></span>
-                    <h4 className="card-title">{post.title}</h4>
+                    <span className='post-thumbnail'><img src={post.thumbnail}></img></span>
+                    <h4 className="card-title"><a href={'post/'+post.slug}>{post.title}</a></h4>
                   </div>
                 </div>
               </div>
