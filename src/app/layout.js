@@ -2,7 +2,6 @@ import './base.css'
 import './custom.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { fileURLToPath } from 'url'
 import path from 'path'
 
 export const metadata = {
@@ -12,7 +11,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 
-  const rootDir = path.dirname(fileURLToPath(import.meta.url))
+  const rootDir = process.cwd()
 
   return (
     <html lang="en">
