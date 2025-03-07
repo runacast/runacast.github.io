@@ -5,7 +5,7 @@ import path from 'path'
 
 export default function Header(){
 
-    const filePath = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
+    const filePath = path.join(path.dirname(__filename), 'src', 'menus', 'top-menu.json')
 
     let menu = []
 
