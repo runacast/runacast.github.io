@@ -4,7 +4,9 @@ import { useEffect } from 'react';
 import Script from 'next/script';
 
 export default function PayPalButton() {
+  
   useEffect(() => {
+    alert(window.paypal)
     if (window.paypal) {
       window.paypal
         .Buttons({
