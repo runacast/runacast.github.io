@@ -7,7 +7,6 @@ const postsFolder = path.join(process.cwd(), 'src', 'posts')
 // Ruta al archivo posts.json
 const outputFile = path.join(process.cwd(), 'src', 'index', 'lasted.json')
 
-// Leer todos los archivos JSON en la carpeta de posts
 const postFiles = fs.readdirSync(postsFolder).filter((file) => file.endsWith('.json'))
 
 // Leer y combinar los posts
