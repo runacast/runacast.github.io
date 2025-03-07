@@ -6,9 +6,9 @@ import ReactMarkdown from 'react-markdown'
 function getPage(slug) {
 
   const filePath = path.join(process.cwd(), 'src', 'pages', slug + '.json')
-  const fileContent = fs.readFileSync(filePath, 'utf8')
 
   if(fs.existsSync(filePath)){
+    const fileContent = fs.readFileSync(filePath, 'utf8')
     return JSON.parse(fileContent)
   }
   return ''
