@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 
   const rootDir = process.cwd()
-  const pal = path.join(rootDir, 'src', 'pages')
+  const pal = path.join(rootDir, 'src', 'menus')
   const apl = fs.readdirSync(pal)
 
   return (

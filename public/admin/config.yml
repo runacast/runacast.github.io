@@ -21,7 +21,7 @@ collections:
     label: "Menus"
     widget: "object"
     label_singular: "Menu"
-    folder: "src/index"
+    folder: "src/menus"
     extension: "json"
     format: "json"
     slug: '{{slug}}'
