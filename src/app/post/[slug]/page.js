@@ -28,8 +28,6 @@ export async function generateMetadata({ params }) {
 export default async function Post({ params, searchParams}) {
 
     try {
-
-      const menu = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
       
       const post = getPost((await params).slug)
 
@@ -37,7 +35,8 @@ export default async function Post({ params, searchParams}) {
         throw new Error('Not found 404')
       }
       
-      return <div className='container'>
+      return (
+      <div className='container'>
         <div className='content'>
           <h2>{post.title}</h2>
           <div className='row'>
@@ -50,6 +49,7 @@ export default async function Post({ params, searchParams}) {
           </div>
         </div>
       </div>
+      )
 
     }catch(e){
 

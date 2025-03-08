@@ -3,7 +3,6 @@ import './custom.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import path from 'path'
-import fs from 'fs'
 
 export const metadata = {
   title: 'RimayManta - Salasaka',
@@ -11,15 +10,13 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-
-  const rootDir = process.cwd()
-  const pal = path.join(rootDir, 'src')
-  const apl = fs.readdirSync(pal)
+  
+  const filepath = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
 
   return (
     <html lang="en">
-      <body link={apl}>
-        <Header root={rootDir} />
+      <body>
+        <Header path={filepath} />
         {children}
         <Footer />
       </body>
