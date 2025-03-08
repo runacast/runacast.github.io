@@ -12,10 +12,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 
+  const rootDir = process.cwd()
+  const pal = path.join(rootDir, 'src')
+  const apl = fs.readdirSync(pal)
+
   return (
     <html lang="en">
-      <body>
-        <Header />
+      <body link={apl}>
+        <Header root={rootDir} />
         {children}
         <Footer />
       </body>
