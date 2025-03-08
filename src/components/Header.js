@@ -3,8 +3,8 @@ import fs from 'fs'
 import path from 'path'
 
 export default function Header(root){
-    
-    //const filePath = path.join(root.root, '..', 'menus', 'top-menu.json')
+
+    const filepath = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
 
     let menu = []
 

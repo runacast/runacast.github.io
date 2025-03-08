@@ -5,8 +5,6 @@ import ReactMarkdown from 'react-markdown'
 
 export async function generateMetadata({ params }) {
 
-  const filep = path.join(process.cwd(), 'src', 'navbars', 'menu-1.json')
-
   const post = getPost((await params).slug); // Función ficticia para obtener datos
 
   return {
