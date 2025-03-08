@@ -1,2 +1,2 @@
 [build]
-  command = "next build"
+  command = "node src/app/posts.js && next build"
