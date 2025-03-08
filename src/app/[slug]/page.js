@@ -2,6 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 function getPage(slug) {
 
@@ -41,15 +43,16 @@ export default async function Page({ params, searchParams}) {
 
     try {
       
-      fs.readdirSync(path.join(process.cwd(), 'src', 'menus'))
-      
+      const filepath = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
       const page = getPage((await params).slug)
 
       if(!page){
         throw new Error('Not found 404.')
       }
       
-      return <div className='container'>
+      return <>
+      <Header path={filepath} />
+      <div className='container'>
         <div className='content'>
           <h2>{page.title}</h2>
           {function(){
@@ -62,6 +65,9 @@ export default async function Page({ params, searchParams}) {
           </div>
         </div>
       </div>
+      <Footer />
+      </>
+      
     }catch(e){
       return <div className='container'>
         <div className='content'>

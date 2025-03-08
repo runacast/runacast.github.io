@@ -1,8 +1,17 @@
+import fs from 'fs'
 import Logo from '../../public/logo.svg'
 
-export default function Header(data){
+export default function Header(path){
 
-    let menu = data.data
+    let menu = []
+
+    if (fs.existsSync(path.path)) {
+        const fileContent = fs.readFileSync(path.path, 'utf8')
+        const data = JSON.parse(fileContent)
+        if (data.menu) {
+            menu = data.menu
+        }
+    }
 
     return <div id='header'>
         <div className='content'>

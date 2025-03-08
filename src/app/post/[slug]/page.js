@@ -2,6 +2,19 @@ import fs from 'fs'
 import path from 'path'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+
+function getPost(slug){
+
+  const filePath = path.join(process.cwd(), 'src', 'posts', slug + '.json')
+  if(fs.existsSync(filePath)){
+    const fileContent = fs.readFileSync(filePath, 'utf8')
+    return JSON.parse(fileContent)
+  }
+  return ''
+
+}
 
 export async function generateMetadata({ params }) {
 
@@ -29,29 +42,30 @@ export default async function Post({ params, searchParams}) {
 
     try {
 
-      fs.readdirSync(path.join(process.cwd(), 'src', 'menus'))
-      
+      const filepath = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
       const post = getPost((await params).slug)
 
       if(!post){
         throw new Error('Not found 404')
       }
       
-      return (
-      <div className='container'>
-        <div className='content'>
-          <h2>{post.title}</h2>
-          <div className='row'>
-            <img src={post.thumbnail}></img>
-          </div>
-          <div className='row'>
-            <ReactMarkdown>
-              {post.body}
-            </ReactMarkdown>
+      return <>
+        <Header path={filepath} />
+        <div className='container'>
+          <div className='content'>
+            <h2>{post.title}</h2>
+            <div className='row'>
+              <img src={post.thumbnail}></img>
+            </div>
+            <div className='row'>
+              <ReactMarkdown>
+                {post.body}
+              </ReactMarkdown>
+            </div>
           </div>
         </div>
-      </div>
-      )
+        <Footer />
+      </>
 
     }catch(e){
 
@@ -63,15 +77,4 @@ export default async function Post({ params, searchParams}) {
 
     }
     
-}
-
-function getPost(slug){
-
-  const filePath = path.join(process.cwd(), 'src', 'posts', slug + '.json')
-  if(fs.existsSync(filePath)){
-    const fileContent = fs.readFileSync(filePath, 'utf8')
-    return JSON.parse(fileContent)
-  }
-  return ''
-
 }
