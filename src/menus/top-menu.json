@@ -6,6 +6,16 @@
       "order": 1,
       "title": "Kallarik",
       "slug": "/"
+    },
+    {
+      "order": 2,
+      "title": "Ñukuchi",
+      "slug": "/nukuchi"
+    },
+    {
+      "order": 3,
+      "title": "Yanapay",
+      "slug": "/yanapay"
     }
   ]
 }
