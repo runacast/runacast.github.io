@@ -28,6 +28,8 @@ export async function generateMetadata({ params }) {
 export default async function Post({ params, searchParams}) {
 
     try {
+
+      fs.readdirSync(path.join(process.cwd(), 'src', 'menus'))
       
       const post = getPost((await params).slug)
 

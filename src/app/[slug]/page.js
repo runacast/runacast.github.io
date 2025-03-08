@@ -41,6 +41,8 @@ export default async function Page({ params, searchParams}) {
 
     try {
       
+      fs.readdirSync(path.join(process.cwd(), 'src', 'menus'))
+      
       const page = getPage((await params).slug)
 
       if(!page){
