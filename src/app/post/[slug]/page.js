@@ -28,6 +28,8 @@ export async function generateMetadata({ params }) {
 export default async function Post({ params, searchParams}) {
 
     try {
+
+      const menu = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
       
       const post = getPost((await params).slug)
 
