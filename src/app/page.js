@@ -9,10 +9,11 @@ export default function Home() {
   try{
 
     const filepath = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
-    const postsFolder = path.join(process.cwd(), 'src', 'posts')
-    const postFiles = fs.readdirSync(postsFolder).filter((file) => file.endsWith('.json'))
-    let postsList = []
+    const fileposts = path.join(process.cwd(), 'src', 'index', 'lasted.json')
+    const postsList = JSON.parse(fs.readFileSync(fileposts, 'utf8'))
 
+    /*const postFiles = fs.readdirSync(postsFolder).filter((file) => file.endsWith('.json'))
+    let postsList = []
     postFiles.forEach((file, index) => {
       
       if (index <= 9) {
@@ -26,14 +27,14 @@ export default function Home() {
         })
       }
 
-    })
+    })*/
     
     const chunkArray = (array, size) => {
       return Array.from({ length: Math.ceil(array.length / size) }, (_, index) =>
         array.slice(index * size, index * size + size)
-      );
-    };
-
+      )
+    }
+    
     const groupedPosts = chunkArray(postsList, 3);
 
     return <>
