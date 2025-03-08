@@ -17,27 +17,6 @@ media_library:
   config:
     publicKey: demopublickey
 collections:
-  - name: "menus"
-    label: "Menus"
-    widget: "object"
-    label_singular: "Menu"
-    folder: "src/menus"
-    extension: "json"
-    format: "json"
-    slug: '{{slug}}'
-    create: true
-    fields:
-      - { label: "Title", name: "title", widget: "string", tagname: "h1" }
-      - { label: "Slug", name: "slug", widget: "string", hint: "menu-slug", default: 'menu-slug' }
-      - label: "Menu"
-        name: "menu"
-        collapsed: true
-        widget: "list"
-        fields:
-          - { label: "Order", name: "order", widget: "number", value_type: "int", min: 0, max: 100 }
-          - { label: "Title", name: "title", widget: "string", tagname: "h1" }
-          - { label: "Slug", name: "slug", widget: "string" }
-          - { label: "Target", name: "target", widget: "string", required: false }
   - name: "pages"
     label: "Pages"
     widget: "object"
@@ -85,3 +64,15 @@ collections:
         }
       - { label: "Tags", name: "tags", widget: "list", default: ["Tarjeta"] }
       - { label: "Body", name: "body", widget: "text", hint: "Contenido del post..." }
+  - name: "navbars"
+    label: "Navbars"
+    widget: "object"
+    label_singular: "Navbar"
+    folder: "src/navbars"
+    extension: "json"
+    format: "json"
+    slug: '{{slug}}'
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string", tagname: "h1" }
+      - { label: "Slug", name: "slug", widget: "string", default: 'post-title' }
