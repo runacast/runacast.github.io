@@ -1,11 +1,14 @@
 import custom from './page.module.css'
 import fs from 'fs'
 import path from 'path'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export default function Home() {
 
   try{
 
+    const filepath = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
     const postsFolder = path.join(process.cwd(), 'src', 'posts')
     const postFiles = fs.readdirSync(postsFolder).filter((file) => file.endsWith('.json'))
     let postsList = []
@@ -33,7 +36,9 @@ export default function Home() {
 
     const groupedPosts = chunkArray(postsList, 3);
 
-    return <div className='container'>
+    return <>
+    <Header path={filepath} />
+    <div className='container'>
       <div className='content'>
         <h2 className={custom.title}>Ima tukushka</h2>
         {groupedPosts.map((group, groupIndex) => (
@@ -56,6 +61,8 @@ export default function Home() {
         ))}
       </div>
     </div>
+    <Footer />
+    </>
 
   }catch(e){
     return <div className='container'>
@@ -64,6 +71,5 @@ export default function Home() {
       </div>
     </div>
   }
-  
   
 }
