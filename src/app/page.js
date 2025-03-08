@@ -8,9 +8,13 @@ export default function Home() {
 
   try{
 
-    const filepath = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
+    const filemenu = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
     const fileposts = path.join(process.cwd(), 'src', 'index', 'lasted.json')
     const postsList = JSON.parse(fs.readFileSync(fileposts, 'utf8'))
+
+    if(!postsList.length){
+      throw new Error("Not there posts to show")
+    }
 
     /*const postFiles = fs.readdirSync(postsFolder).filter((file) => file.endsWith('.json'))
     let postsList = []
@@ -34,11 +38,11 @@ export default function Home() {
         array.slice(index * size, index * size + size)
       )
     }
-    
+
     const groupedPosts = chunkArray(postsList, 3);
 
     return <>
-    <Header path={filepath} />
+    <Header path={filemenu} />
     <div className='container'>
       <div className='content'>
         <h2 className={custom.title}>Ima tukushka</h2>
@@ -68,7 +72,7 @@ export default function Home() {
   }catch(e){
     return <div className='container'>
       <div className='content'>
-        <p>Imash illun</p>
+        <p>{e.message}</p>
       </div>
     </div>
   }
