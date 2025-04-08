@@ -6,42 +6,6 @@ import Footer from '@/components/Footer'
 
 export default function Home() {
 
-  /*try{
-
-    
-
-    if(!postsList.length){
-      throw new Error("Not there posts to show")
-    }*/
-
-    /*const postFiles = fs.readdirSync(postsFolder).filter((file) => file.endsWith('.json'))
-    let postsList = []
-    postFiles.forEach((file, index) => {
-      
-      if (index <= 9) {
-        const filePath = path.join(postsFolder, file)
-        const fileContent = fs.readFileSync(filePath, 'utf8')
-        const data = JSON.parse(fileContent)
-        postsList.push({
-          title: data.title,
-          thumbnail: data.thumbnail,
-          slug: data.slug
-        })
-      }
-
-    })*/
-    
-    /*
-
-  }catch(e){
-    return <div className='container'>
-      <div className='content'>
-        <p>{e.message}</p>
-      </div>
-    </div>
-  }*/
-
-
   const filemenu = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
   const fileposts = path.join(process.cwd(), 'src', 'index', 'lasted.json')
   const postsList = JSON.parse(fs.readFileSync(fileposts, 'utf8'))
