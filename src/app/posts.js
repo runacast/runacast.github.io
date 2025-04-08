@@ -9,13 +9,13 @@ let lasted = []
 
 const postsList = postFiles.map((file, index) => {
     
-    if(file.match(/^.*\.json$/)){
+    /*if(file.match(/^.*\.json$/)){
         if(index <= 9){
             const filePath = path.join(postsFolder, file)
             const fileContent = fs.readFileSync(filePath, 'utf8')
             lasted.push(JSON.parse(fileContent))
         }
-    }
+    }*/
     
 })
 
