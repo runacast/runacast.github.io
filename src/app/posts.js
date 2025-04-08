@@ -1,10 +1,10 @@
+const fs = require('fs')
+const path = require('path')
+const postsFolder = path.join(process.cwd(), 'src', 'posts')
+const outputFile = path.join(process.cwd(), 'src', 'index', 'lasted.json')
+
 try{
-
-    const fs = require('fs')
-    const path = require('path')
-
-    const postsFolder = path.join(process.cwd(), 'src', 'posts')
-    const outputFile = path.join(process.cwd(), 'src', 'index', 'lasted.json')
+    
     const postFiles = fs.readdirSync(postsFolder).filter(file => file.endsWith('.json'))
 
     let lasted = []
