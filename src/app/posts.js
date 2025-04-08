@@ -21,6 +21,8 @@ try{
     fs.writeFileSync(outputFile, JSON.stringify(lasted, null, 2))
 
 }catch(e){
+
     fs.writeFileSync(outputFile, JSON.stringify([], null, 2))
     console.error(e);
+    
 }
