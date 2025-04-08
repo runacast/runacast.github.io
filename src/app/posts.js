@@ -1,22 +1,26 @@
-const fs = require('fs')
-const path = require('path')
+try{
 
-const postsFolder = path.join(process.cwd(), 'src', 'posts')
-const outputFile = path.join(process.cwd(), 'src', 'index', 'lasted.json')
-const postFiles = fs.readdirSync(postsFolder)
+    const fs = require('fs')
+    const path = require('path')
 
-let lasted = []
+    const postsFolder = path.join(process.cwd(), 'src', 'posts')
+    const outputFile = path.join(process.cwd(), 'src', 'index', 'lasted.json')
+    const postFiles = fs.readdirSync(postsFolder).filter(file => file.endsWith('.json'))
 
-const postsList = postFiles.map((file, index) => {
-    
-    /*if(file.match(/^.*\.json$/)){
-        if(index <= 9){
+    let lasted = []
+
+    const postsList = postFiles.map((file, index) => {
+
+        if (index <= 9) {
             const filePath = path.join(postsFolder, file)
             const fileContent = fs.readFileSync(filePath, 'utf8')
             lasted.push(JSON.parse(fileContent))
         }
-    }*/
-    
-})
+    })
 
-fs.writeFileSync(outputFile, JSON.stringify(lasted, null, 2))
+    fs.writeFileSync(outputFile, JSON.stringify(lasted, null, 2))
+
+}catch(e){
+    fs.writeFileSync(outputFile, JSON.stringify([], null, 2))
+    console.error(e);
+}
