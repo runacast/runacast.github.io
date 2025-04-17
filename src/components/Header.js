@@ -4,7 +4,7 @@ import Logo from '../../public/logo.svg'
 import Link from 'next/link'
 import { useState } from 'react'
 
-export default function Header(path){
+export default async function Header(path){
 
     const [isPictureVisible, setIsPictureVisible] = useState(false), togglePicture = () => {
         setIsPictureVisible(!isPictureVisible);
@@ -12,24 +12,12 @@ export default function Header(path){
 
     let menu = []
 
-    fetch('https://raw.githubusercontent.com/runacast/runacast.github.io/refs/heads/main/src/menus/top-menu.json', {method: "GET"})
-    .then((response) => {
-        if (response.ok) {
-            return response.json()
-        }
-    })
-    .then((data) => {
-        
+    const response = await fetch('https://raw.githubusercontent.com/runacast/runacast.github.io/refs/heads/main/src/menus/top-menu.json', {method: "GET"});
+    
+    if (response.ok) {
+        const data = await response.json()
         menu = data.menu
-    })
-    console.log(menu)
-    /*if (fs.existsSync(path.path)) {
-        const fileContent = fs.readFileSync(path.path, 'utf8')
-        const data = JSON.parse(fileContent)
-        if (data.menu) {
-            menu = data.menu
-        }
-    }*/
+    }
 
     return <div id='header'>
         <div className='content'>
