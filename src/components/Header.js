@@ -12,7 +12,7 @@ export default function Header(path){
     toggle = () => {
         setIsVisible(!isVisible)
     }
-    
+
     let menu = TopMenu.menu
 
     return <div id='header'>
@@ -30,7 +30,7 @@ export default function Header(path){
                         </button>
                     </label>
                 </div>
-                <div className={isVisible ? 'nav-side navbar-toggle' : 'nav-side navbar-toggle hide'}>
+                <div className={isVisible ? 'nav-side navbar-toggle show' : 'nav-side navbar-toggle'}>
                     <ul className="menu">
                     {menu.map((item, index) => (
                         <li key={index}><Link href={item.slug}>{item.title}</Link></li>
