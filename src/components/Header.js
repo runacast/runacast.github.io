@@ -1,23 +1,19 @@
 "use client"
 
+import TopMenu from '@/menus/top-menu.json'
 import Logo from '../../public/logo.svg'
 import Link from 'next/link'
 import { useState } from 'react'
 
-export default async function Header(path){
 
-    const [isPictureVisible, setIsPictureVisible] = useState(false), togglePicture = () => {
-        setIsPictureVisible(!isPictureVisible);
-    };
+export default function Header(path){
 
-    let menu = []
-
-    const response = await fetch('https://raw.githubusercontent.com/runacast/runacast.github.io/refs/heads/main/src/menus/top-menu.json', {method: "GET"});
-    
-    if (response.ok) {
-        const data = await response.json()
-        menu = data.menu
+    const [isVisible, setIsVisible] = useState(false), 
+    toggle = () => {
+        setIsVisible(!isVisible)
     }
+    
+    let menu = TopMenu.menu
 
     return <div id='header'>
         <div className='content'>
@@ -27,14 +23,14 @@ export default async function Header(path){
                 </div>
                 <div className="nav-side navbar-menu right">
                     <label id="menu-toggle">
-                        <button className="menu-btn">
+                        <button className="menu-btn" onClick={toggle}>
                             <div></div>
                             <div></div>
                             <div></div>
                         </button>
                     </label>
                 </div>
-                <div className="nav-side navbar-toggle">
+                <div className={isVisible ? 'nav-side navbar-toggle' : 'nav-side navbar-toggle hide'}>
                     <ul className="menu">
                     {menu.map((item, index) => (
                         <li key={index}><Link href={item.slug}>{item.title}</Link></li>
