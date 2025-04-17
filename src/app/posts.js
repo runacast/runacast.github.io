@@ -8,8 +8,8 @@ try{
     const postFiles = fs.readdirSync(postsFolder).filter(file => file.endsWith('.json'))
 
     let lasted = []
-
-    const postsList = postFiles.map((file, index) => {
+    
+    postFiles.map((file, index) => {
 
         if (index <= 9) {
             const filePath = path.join(postsFolder, file)

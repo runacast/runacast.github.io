@@ -3,6 +3,7 @@ import fs from 'fs'
 import path from 'path'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Link from 'next/link'
 
 export default function Home() {
 
@@ -18,13 +19,11 @@ export default function Home() {
 
   const groupedPosts = chunkArray(postsList, 3);
 
-  let html = <p>OYE</p>
-
   return <>
     <Header path={filemenu} />
     <div className='container'>
       <div className='content'>
-        <h2 className={custom.title}>Ima tukushka</h2>
+        {postsList.length ? <h2 className={custom.title}>Rikunku yachunku</h2> : null}
         {postsList.length ? 
         groupedPosts.map((group, groupIndex) => (
           <div key={groupIndex} className="row" style={{ marginBottom: "20px" }}>
@@ -33,11 +32,11 @@ export default function Home() {
                 <div className="card">
                   <div className="card-body">
                     <span className='post-thumbnail'>
-                      <a href={'post/' + post.slug}>
+                      <Link href={'post/' + post.slug}>
                         <img src={post.thumbnail}></img>
-                      </a>
+                      </Link>
                     </span>
-                    <h4 className="card-title"><a href={'post/' + post.slug}>{post.title}</a></h4>
+                    <h4 className="card-title"><Link href={'post/' + post.slug}>{post.title}</Link></h4>
                   </div>
                 </div>
               </div>
@@ -47,6 +46,7 @@ export default function Home() {
         <p>Not there posts to show</p> }
       </div>
     </div>
+    
     <Footer />
     </>
   
