@@ -5,18 +5,17 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 
+const chunkArray = (array, size) => {
+  return Array.from({ length: Math.ceil(array.length / size) }, (_, index) =>
+    array.slice(index * size, index * size + size)
+  )
+}
+
 export default function Home() {
 
   const filemenu = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
   const fileposts = path.join(process.cwd(), 'src', 'index', 'lasted.json')
   const postsList = JSON.parse(fs.readFileSync(fileposts, 'utf8'))
-
-  const chunkArray = (array, size) => {
-    return Array.from({ length: Math.ceil(array.length / size) }, (_, index) =>
-      array.slice(index * size, index * size + size)
-    )
-  }
-
   const groupedPosts = chunkArray(postsList, 3);
 
   return <>
