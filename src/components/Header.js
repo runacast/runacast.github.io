@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 
-export default function Header(path){
+export default function Header(){
 
     const [isVisible, setIsVisible] = useState(false), 
     toggle = () => {

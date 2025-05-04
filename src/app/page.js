@@ -18,9 +18,7 @@ export default function Home() {
   const postsList = JSON.parse(fs.readFileSync(fileposts, 'utf8'))
   const groupedPosts = chunkArray(postsList, 3);
 
-  return <>
-    <Header path={filemenu} />
-    <div className='container'>
+  return <div className='container'>
       <div className='content'>
         {postsList.length ? <h2 className={custom.title}>Rikunku yachunku</h2> : null}
         {postsList.length ? 
@@ -45,8 +43,5 @@ export default function Home() {
         <p>Not there posts to show</p> }
       </div>
     </div>
-    
-    <Footer />
-    </>
   
 }

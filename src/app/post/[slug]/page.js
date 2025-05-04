@@ -1,24 +1,10 @@
-import fs from 'fs'
-import path from 'path'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-
-function getPost(slug){
-
-  const filePath = path.join(process.cwd(), 'src', 'posts', slug + '.json')
-  if(fs.existsSync(filePath)){
-    const fileContent = fs.readFileSync(filePath, 'utf8')
-    return JSON.parse(fileContent)
-  }
-  return ''
-
-}
+import Data from '@/api/Data'
 
 export async function generateMetadata({ params }) {
 
-  const post = getPost((await params).slug); // Función ficticia para obtener datos
+  const post = Data('posts', (await params).slug); // Función ficticia para obtener datos
 
   return {
     title: post.title,
@@ -42,30 +28,25 @@ export default async function Post({ params, searchParams}) {
 
     try {
 
-      const filepath = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
-      const post = getPost((await params).slug)
+      const post = Data('posts', (await params).slug)
 
       if(!post){
         throw new Error('Not found 404')
       }
       
-      return <>
-        <Header path={filepath} />
-        <div className='container'>
-          <div className='content'>
-            <h2>{post.title}</h2>
-            <div className='row'>
-              <img src={post.thumbnail}></img>
-            </div>
-            <div className='row'>
-              <ReactMarkdown>
-                {post.body}
-              </ReactMarkdown>
-            </div>
+      return <div className='container'>
+        <div className='content'>
+          <h2>{post.title}</h2>
+          <div className='row'>
+            <img src={post.thumbnail}></img>
+          </div>
+          <div className='row'>
+            <ReactMarkdown>
+              {post.body}
+            </ReactMarkdown>
           </div>
         </div>
-        <Footer />
-      </>
+      </div>
 
     }catch(e){
 

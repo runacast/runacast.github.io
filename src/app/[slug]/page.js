@@ -1,25 +1,10 @@
-import fs from 'fs'
-import path from 'path'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-
-function getPage(slug) {
-
-  const filePath = path.join(process.cwd(), 'src', 'pages', slug + '.json')
-
-  if(fs.existsSync(filePath)){
-    const fileContent = fs.readFileSync(filePath, 'utf8')
-    return JSON.parse(fileContent)
-  }
-  return ''
-
-}
+import Data from '@/api/Data'
 
 export async function generateMetadata({ params }) {
 
-  const page = getPage((await params).slug); // Función ficticia para obtener datos
+  const page = Data('pages', (await params).slug); // Función ficticia para obtener datos
 
   return {
     title: page.title,
@@ -43,16 +28,13 @@ export default async function Page({ params, searchParams}) {
 
     try {
       
-      const filepath = path.join(process.cwd(), 'src', 'menus', 'top-menu.json')
-      const page = getPage((await params).slug)
+      const page = Data('pages', (await params).slug)
 
       if(!page){
         throw new Error('Not found 404.')
       }
       
-      return <>
-      <Header path={filepath} />
-      <div className='container'>
+      return <div className='container'>
         <div className='content'>
           <h2>{page.title}</h2>
           {function(){
@@ -65,8 +47,6 @@ export default async function Page({ params, searchParams}) {
           </div>
         </div>
       </div>
-      <Footer />
-      </>
       
     }catch(e){
       return <div className='container'>
