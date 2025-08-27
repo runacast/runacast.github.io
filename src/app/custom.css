@@ -26,6 +26,10 @@ body{
 	display: block;
 }
 
+#header .logo svg{
+	width: 200px;
+}
+
 #header{
 	position: relative;
 }
@@ -46,10 +50,6 @@ body{
 	text-transform: uppercase;
 	font-weight: bolder;
 	color: rgb(101, 101, 101);
-}
-
-#header .navbar{
-	
 }
 
 /* Card visual content */
