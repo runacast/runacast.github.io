@@ -1,14 +1,20 @@
-body{
+body {
 	background-color: rgb(249, 249, 249);
 }
 
 .container {
-    font-family: Arial, Helvetica;
-    width: 100%;
-    margin: 0;
+	font-family: Arial, Helvetica;
+	width: 100%;
+	margin: 0;
 	padding: 0;
 	position: relative;
 	background-color: transparent;
+
+	.container .content {
+		max-width: 1200px;
+		padding: 40px;
+	}
+
 }
 
 .content {
@@ -16,38 +22,44 @@ body{
 	max-width: 1200px;
 	margin-left: auto;
 	margin-right: auto;
+
+	.post-title {
+		padding: 5px;
+		display: flex;
+		line-height: 40px;
+		.post-slogan{
+			padding: 10px;
+			border-right: solid #6e6e6e 1px;
+		}
+		.post-date{
+			padding: 10px;
+		}
+	}
 }
 
-#header{
+#header {
 	background-color: #FFF;
-}
-
-#header .logo{
-	display: block;
-	max-width: 200px;
-	height: 50px;
-}
-
-#header{
 	position: relative;
-}
 
-.container .content{
-	max-width: 1200px;
-	padding: 40px;
-}
+	.logo {
+		display: block;
+		max-width: 200px;
+		height: 50px;
+	}
 
-#header .menu{
-	margin-left: 10px;
-	margin-right: 10px;
-	font-family: Arial;
-}
+	.menu {
+		margin-left: 10px;
+		margin-right: 10px;
+		font-family: Arial;
 
-#header .menu li a{
-	padding: 10px 15px;
-	text-transform: uppercase;
-	font-weight: bolder;
-	color: rgb(101, 101, 101);
+		li a {
+			padding: 10px 15px;
+			text-transform: uppercase;
+			font-weight: bolder;
+			color: rgb(101, 101, 101);
+		}
+	}
+
 }
 
 /* Card visual content */

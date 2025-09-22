@@ -10,10 +10,12 @@ export async function generateMetadata({ params }) {
     title: page.title,
     description: page.body,
     openGraph: {
+      site_name: process.env.SITE_NAME,
       title: page.title,
       description: page.body,
       images: page.thumbnail,
-      url: `https://rimaymanta.com/${page.thumbnail}`
+      url: `${process.env.URL_SITE}/post/${page.slug}`,
+      robots: 'index, follow'
     },
     twitter: {
       card: "summary_large_image",
@@ -37,6 +39,7 @@ export default async function Page({ params, searchParams}) {
       return <div className='container'>
         <div className='content'>
           <h2>{page.title}</h2>
+          <sub></sub>
           {function(){
             if(page.thumbnail){
               return <div className='row'><img src={page.thumbnail}></img></div>

@@ -1,5 +1,5 @@
 import './base.css'
-import './custom.css'
+import './custom.scss'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
