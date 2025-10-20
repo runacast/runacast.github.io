@@ -1,2 +1,10 @@
 [build]
-  command = "node src/app/posts.js && next build"
+  command = "npm run build"
+
+[functions]
+  directory = "netlify/functions"
+
+[dev]
+  functions = "netlify/functions"
+  framework = "next"
+  offline = true

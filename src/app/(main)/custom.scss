@@ -1,0 +1,137 @@
+body {
+	background-color: rgb(249, 249, 249);
+}
+
+.container {
+	font-family: Arial, Helvetica;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	background-color: transparent;
+
+	.container .content {
+		max-width: 1200px;
+		padding: 40px;
+	}
+
+}
+
+.content {
+	padding: 20px;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+
+	.post-title {
+		padding: 5px;
+		display: flex;
+		line-height: 40px;
+		.post-slogan{
+			padding: 10px;
+			border-right: solid #6e6e6e 1px;
+		}
+		.post-date{
+			padding: 10px;
+		}
+	}
+}
+
+#header {
+	background-color: #FFF;
+	position: relative;
+
+	.logo {
+		display: block;
+		max-width: 200px;
+		height: 50px;
+	}
+
+	.menu {
+		margin-left: 10px;
+		margin-right: 10px;
+		font-family: Arial;
+
+		li a {
+			padding: 10px 15px;
+			text-transform: uppercase;
+			font-weight: bolder;
+			color: rgb(101, 101, 101);
+		}
+	}
+
+}
+
+/* Card visual content */
+
+.card{
+	padding: 5px;
+}
+
+.card .button{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.card .btn-buy{
+	text-align: center;
+	display: block;
+	border-radius: 15px;
+	padding: 20px;
+	background-color: rgb(98, 98, 98);
+	color: rgb(236, 236, 236);
+	text-transform: uppercase;
+	text-decoration: solid;
+	font-weight: bold;
+}
+
+.superCard .options{
+	margin: 10px;
+}
+
+.superCard .btn-buy{
+	text-align: right;
+	display: block;
+	padding: 15px;
+	color: #FFF;
+	background-color: rgb(23, 23, 23);
+	border-radius: 10px;
+}
+
+.superCard .btn-buy:hover {
+	color: #FFF;
+}
+
+.options{
+	padding: 0px;
+}
+
+@media screen and (max-width: 1280px){
+
+	
+	
+}
+
+@media screen and (max-width: 430px){
+
+	.offset-2{
+		margin-left: 0;
+	}
+
+}
+
+@media (min-width: 320px) and (max-width: 463px){
+	
+	.offset-2{
+		margin-left: 0;
+	}
+
+}
+
+@media (max-width: 1024px) {
+	
+	.offset-2{
+		margin-left: 0;
+	}
+
+}
